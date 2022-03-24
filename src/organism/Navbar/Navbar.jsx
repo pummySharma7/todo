@@ -1,7 +1,18 @@
 import {Link} from "react-router-dom";
 export const Navbar=()=>{
-    return <div>
-        <Link to="/">Home</Link>
-        <Link to="/res">Result</Link>
+
+    const divStyle={
+        display: "flex",      
+        justifyContent:"space-evenly"
+    }
+
+    const atagStyle={
+        textDecoration: "none",
+        
+    }
+
+    return <div style={divStyle}>
+        <Link style={atagStyle} to="/">Home</Link>
+        <Link style={atagStyle} to="/res">Result</Link>
     </div>
 }

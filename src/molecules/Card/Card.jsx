@@ -15,12 +15,22 @@ export const Card=(data)=>{
         console.log(items);
         dispatch(getTodo(items))
     }
-    
-    return <div >
+    const style={
+      display: 'flex',
+      flexDirection: 'column',
+      margin:"auto",
+      width: "60%",
+      textAlign: 'center',
+    }
+    const liStyle={
+      backgroundColor:"#FFEBBC",
+      color:"pink"
+    }
+    return <div style={style}>
         <DragDropContext onDragEnd={handleEnd}>
     <Droppable droppableId="characters">
         {(provided)=>(
-            <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
+            <ul style={{listStyle:"none"}} className="characters" {...provided.droppableProps} ref={provided.innerRef}>
                 {data.data.map((item, index) => (
               <Draggable
                 key={item.id}
@@ -29,6 +39,7 @@ export const Card=(data)=>{
               >
                 {(provided, snapshot) => (
                   <li
+                  style={liStyle}
                     {...provided.draggableProps}
                     ref={provided.innerRef}
                     {...provided.dragHandleProps}
@@ -38,7 +49,8 @@ export const Card=(data)=>{
                     }
                   >
                     <input type="checkbox" defaultChecked={item.mark} onChange={()=>dispatch(markTodo(item.id))} />
-                    {index + 1}.{item.title}
+                    {item.title}
+                    <br />
                     <Button text={item.status?"True" : "False"} onClick={()=>dispatch(toggleTodo(item.id))}/>
                     <Button text="delete" onClick={()=>dispatch(deleteTodo(item.id))}/>
                   </li>
