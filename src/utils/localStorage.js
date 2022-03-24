@@ -8,6 +8,9 @@ export const loadData=(key)=>{
    
 }
 
+
+
+
 export const saveData=(key,payload)=>{
     if(!JSON.parse(localStorage.getItem(key))){
         localStorage.setItem(key,JSON.stringify([]));
