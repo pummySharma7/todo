@@ -66,28 +66,3 @@ export const Card=(data)=>{
     </DragDropContext>
     </div>
 }
-
-
-
-// data.data.map((e,i)=>
-// <ul key={e.id}>
-//     <Draggable
-//     key={e.id}
-//     draggableId={e.id.toString()}
-//     index={i}>
-//     <li>
-//     <div style={{display: 'flex'}}>
-//     <input type="checkbox" defaultChecked={e.mark} onChange={()=>dispatch(markTodo(e.id))} />
-//     <div>
-//     {e.title}
-//     </div>
-//     </div>
-//     <div onClick={()=>dispatch(toggleTodo(e.id))}>
-//         status:{e.status?"  True":"  False"}
-//     </div>
-//     <Button text="delete" onClick={()=>dispatch(deleteTodo(e.id))}/>
-//     </li>
-//     </Draggable>
-    
-// </ul>    
-// )
