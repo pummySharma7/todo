@@ -1,6 +1,6 @@
 export const Button=(prop)=>{
     const btn={
-        margin: "1%",
+        // margin: "1%",
         padding:"1%",
         backgroundColor: "rgb(17, 17, 70)",
         color:"white",

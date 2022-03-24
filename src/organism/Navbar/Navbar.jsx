@@ -3,7 +3,9 @@ export const Navbar=()=>{
 
     const divStyle={
         display: "flex",      
-        justifyContent:"space-evenly"
+        justifyContent:"space-evenly",
+        backgroundColor:"white",
+        padding:"1%"
     }
 
     const atagStyle={

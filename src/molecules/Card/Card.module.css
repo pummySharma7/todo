@@ -1,0 +1,11 @@
+.container{
+      display:flex;
+      flex-direction: column;
+      margin: auto;
+      width:60%;
+      text-align: center;
+}
+
+.strike{
+    text-decoration: line-through;
+}

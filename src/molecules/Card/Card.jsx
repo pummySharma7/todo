@@ -3,6 +3,7 @@ import {Button} from "./../../atoms/Button/Button";
 import {useDispatch} from "react-redux";
 import { deleteTodo,markTodo,toggleTodo,getTodo} from "./../../Redux/action";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import styled from "./Card.module.css";
 
 export const Card=(data)=>{
     console.log(data);
@@ -15,18 +16,8 @@ export const Card=(data)=>{
         console.log(items);
         dispatch(getTodo(items))
     }
-    const style={
-      display: 'flex',
-      flexDirection: 'column',
-      margin:"auto",
-      width: "60%",
-      textAlign: 'center',
-    }
-    const liStyle={
-      backgroundColor:"#FFEBBC",
-      color:"pink"
-    }
-    return <div style={style}>
+
+    return <div className={styled.container}>
         <DragDropContext onDragEnd={handleEnd}>
     <Droppable droppableId="characters">
         {(provided)=>(
@@ -39,7 +30,6 @@ export const Card=(data)=>{
               >
                 {(provided, snapshot) => (
                   <li
-                  style={liStyle}
                     {...provided.draggableProps}
                     ref={provided.innerRef}
                     {...provided.dragHandleProps}
@@ -49,9 +39,9 @@ export const Card=(data)=>{
                     }
                   >
                     <input type="checkbox" defaultChecked={item.mark} onChange={()=>dispatch(markTodo(item.id))} />
-                    {item.title}
+                    <span className={item.status?styled.strike :""}>{item.title}</span>
                     <br />
-                    <Button text={item.status?"True" : "False"} onClick={()=>dispatch(toggleTodo(item.id))}/>
+                    <Button text={item.status?"Done" : "Pending"} onClick={()=>dispatch(toggleTodo(item.id))}/>
                     <Button text="delete" onClick={()=>dispatch(deleteTodo(item.id))}/>
                   </li>
                 )}

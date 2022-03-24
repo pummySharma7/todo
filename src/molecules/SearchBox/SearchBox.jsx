@@ -18,7 +18,10 @@ export const Search=(prop)=>{
     }
 
     const submitData=()=>{
-        console.log("dfvdf")
+      if(data===""){
+          alert("Please enter the task");
+          return ;
+      }
        let payload={
            status:false,
            title:data,
@@ -28,7 +31,7 @@ export const Search=(prop)=>{
        dispatch(addTodo(payload));
     }
 
-    return <div>
+    return <div style={{width:"60%",display: "flex",margin: "auto",justifyContent: "center",marginTop: "2%"}}>
         <InputField {...obj} onChange={handlechange}/>
         <Button onClick={submitData} text={prop.text}/>
     </div>
