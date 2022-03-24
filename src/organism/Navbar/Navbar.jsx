@@ -6,6 +6,9 @@ export const Navbar=()=>{
         justifyContent:"space-evenly",
         backgroundColor:"white",
         padding:"1%"
+
+
+        
     }
 
     const atagStyle={
